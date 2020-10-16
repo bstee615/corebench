@@ -1,0 +1,43 @@
+Required: 
+* Ubuntu 13.04
+* git (e.g., sudo apt-get install git)
+* autoconf v2.69 (e.g., sudo apt-get install autoconf)
+* autogen (e.g., sudo apt-get install autogen)
+* autopoint v0.18.1 (e.g., sudo apt-get install autopoint)
+* libtool v2.4.2 (e.g., sudo apt-get install libtool)
+* bison v2.5 (e.g., sudo apt-get install bison)
+* gperf v3.0.3 (e.g., sudo apt-get install gperf)
+* texinfo v4.13 (e.g., sudo apt-get install texinfo)
+* cvs (e.g., sudo apt-get install cvs)
+* locales ru_RU.KOI8-R, tr_TR.UTF-8, ja_JP.UTF-8, ja_JP.sjis, en_HK.UTF-8, zh_CN (e.g., sudo locale-gen <locale>) 
+(* CIL Analysis Framework -- if you want to compile with CIL )
+(** OCaml: sudo apt-get install ocaml                        )
+(** Ocaml-findlib: sudo apt-get install ocaml-findlib        )
+(** CIL: goto http://kerneis.github.io/cil/                  )
+(*** ./configure && make && sudo make install                )
+
+Run: ./createCoREBench.sh <compile[-with-cil]|compile-all[-with-cil]|analyze> <checkout directory>.
+  compile             : Compile all subjects but stop at the first installation error.
+  compile-all         : Compile all subjects but continue after each installation error.
+  compile-with-cil    : Compile all subjects with CIL but stop at the first installation error.
+  compile-all-with-cil: Compile all subjects with CIL but continue after each installation error.
+  analyze             : Analyze subjects using analyze.sh.
+  check               : Report all (un)compiled revisions.
+  test                : Execute test cases for installed subject versions.
+  test-print          : Execute test cases for installed subject versions and print output.
+
+* This will check out several Gigabyte of and try to install all 
+  versions right after the error-introducing and error-fixing 
+  commit for each regression error. 
+
+COMPILATION ERRORS
+If an error occurs during compilation of one version, you can fix
+this compilation error and execute 'touch is_installed'. The next
+execution of the script with the 'compile' option will skip all
+previously successfully compiled versions and the fixed version 
+and resume with the compilation of the next version.
+
+Please submit your patches and fixes to regression.errors[at]gmail.com.
+How to create a patch: http://docs.moodle.org/dev/How_to_create_a_patch
+
+

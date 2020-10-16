@@ -1,0 +1,29 @@
+#                                                                    -*-perl-*-
+
+$description = "Test automatic variable setting.";
+
+$details = "";
+
+use Cwd;
+
+$dir = cwd;
+$dir =~ s,.*/([^/]+)$,../$1,;
+
+
+
+# TEST #3 -- test for Savannah bug #12320.
+#
+run_make_test('
+.SUFFIXES: .b .src
+
+mbr.b: mbr.src
+	@echo $*
+
+mbr.src: ; @:
+
+',
+'',
+'mbr
+');
+
+1;

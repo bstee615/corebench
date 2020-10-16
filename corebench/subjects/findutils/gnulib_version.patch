@@ -1,0 +1,11 @@
+--- lib/gnulib-version.sh	2014-02-13 13:22:18.650680288 +0800
++++ lib/gnulib-version.sh	2014-02-13 13:22:14.000356335 +0800
+@@ -26,7 +26,7 @@
+ outfile="${srcdir}"/gnulib-version.c
+ 
+ source $configfile
+-
++gnulib_version="2007-04-03"
+ if [ -z "$gnulib_version" ] 
+ then
+     echo "Error: There should be a gnulib_version setting in $configfile, but there is not." >&2

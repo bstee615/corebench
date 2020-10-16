@@ -1,0 +1,20 @@
+c32c042126a633d1bda23317410667cdd3a527f5 c96b0f2c8220f171f8fabd62aa1457ebff4d9277 http://lists.gnu.org/archive/html/bug-grep/2012-08/msg00012.html
+70e236167c3973fc428d2b5b297218fde9b68e73 2be0c6591ea5d56ee7fbc364228f24b85f569a5c http://lists.gnu.org/archive/html/bug-grep/2012-06/msg00001.html
+7aa698d36b5b2eeb8e90e7a327eb7ebe46d59e87 074842d3e3054714a495252e582886f0e4ace4e4 http://lists.gnu.org/archive/html/bug-grep/2010-12/msg00009.html
+70e236167c3973fc428d2b5b297218fde9b68e73 7aa698d36b5b2eeb8e90e7a327eb7ebe46d59e87 http://lists.gnu.org/archive/html/bug-grep/2012-06/msg00001.html
+#
+#Was fixed twice (second fixed the "root cause")
+6245829135f68fd77e5ba590650abbe6c350bf42 +0b91d6928e9d098d3746ce9f4bb4160a2e685f5c http://savannah.gnu.org/bugs/?33547
+3c3bdace487c2c961ab3126d9a573af29c449c8b
+0d38a8bba16bdc4aa8d657becd5526575a3f8ca8 c1cb19fe67f4c83f9232087ae03c178905d62b0d http://lists.gnu.org/archive/html/bug-grep/2010-03/msg00449.html
+8a025cf81cdf5c3e809c3ecf0656419a2d596796 8f08d8e282bf3d4917e94135e67ba17d738313ce http://lists.gnu.org/archive/html/bug-grep/2010-03/msg00443.html
+8f9106c419d18759f767da351b3b6913f022c8f8 3220317a428d63a4303ffee0fb45becf835cf1fd http://lists.gnu.org/archive/html/bug-grep/2010-03/msg00395.html
+75bc6fb14dea81ade7d761448610c2280d17d1d6 55cf7b6a1905320c36702a476b09ebb29a2934d3 http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=669084
++c4e8205b988dd2a95a00e188d32f4d6ec1d3f7e7 9c45c193825d1f59e1d341e556ecf4adeb7a03a2 http://savannah.gnu.org/bugs/?29876
+c5a06069bcf9881f45193f82b46c235fe44c72e9
++c4e8205b988dd2a95a00e188d32f4d6ec1d3f7e7 58195fabc7559541b3736400e08e901011acd61f http://lists.gnu.org/archive/html/bug-grep/2012-04/msg00056.html
+c5a06069bcf9881f45193f82b46c235fe44c72e9
+6d952beebdac1d8f31ba20abb12a756a9877e50d 5fa8c7c9775577fda035b741cb1db5f9fe7c5d74 http://lists.gnu.org/archive/html/bug-grep/2010-03/msg00586.html
+db9d6340b42a7774fae526f6a90eea3ce834e2d0 6d952beebdac1d8f31ba20abb12a756a9877e50d http://lists.gnu.org/archive/html/bug-grep/2010-03/msg00533.html
+deccad69bd9b4689af9fd950c48049cdc1284a81 db9d6340b42a7774fae526f6a90eea3ce834e2d0 http://lists.gnu.org/archive/html/bug-grep/2010-03/msg00579.html
+401d81946e98f70ed135f57522f58eeeff54cdb2 54d55bba41f2ff31682fe6523ef6f49b37a0e20f http://lists.gnu.org/archive/html/bug-grep/2010-03/msg00477.html

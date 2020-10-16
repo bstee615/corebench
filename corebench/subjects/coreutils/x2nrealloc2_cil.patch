@@ -1,0 +1,22 @@
+--- src/system.h	2014-02-13 10:55:45.155787341 +0800
++++ src/system.h	2014-02-13 10:55:40.825623170 +0800
+@@ -345,15 +345,15 @@
+    the third argument to x2nrealloc would be `sizeof *(P)'.
+    Ensure that sizeof *(P) is *not* 1.  In that case, it'd be
+    better to use X2REALLOC, although not strictly necessary.  */
+-#define X2NREALLOC(P, PN) ((void) verify_true (sizeof *(P) != 1), \
+-			   x2nrealloc (P, PN, sizeof *(P)))
++#define X2NREALLOC(P, PN) x2nrealloc (P, PN, sizeof *(P))/*((void) verify_true (sizeof *(P) != 1), */
++			   
+ 
+ /* Using x2realloc (when appropriate) usually makes your code more
+    readable than using x2nrealloc, but it also makes it so your
+    code will malfunction if sizeof *(P) ever becomes 2 or greater.
+    So use this macro instead of using x2realloc directly.  */
+-#define X2REALLOC(P, PN) ((void) verify_true (sizeof *(P) == 1), \
+-                          x2realloc (P, PN))
++#define X2REALLOC(P, PN) x2realloc (P, PN) /*((void) verify_true (sizeof *(P) == 1),  */
++                          
+ 
+ #include "unlocked-io.h"
+ #include "same-inode.h"

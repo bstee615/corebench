@@ -1,0 +1,24 @@
+--- lib/verify.h	2014-02-10 15:46:45.879290900 +0800
++++ lib/verify.h	2014-02-10 15:45:55.474734242 +0800
+@@ -237,18 +237,18 @@
+ 
+    verify_true is obsolescent; please use verify_expr instead.  */
+ 
+-#define verify_true(R) _GL_VERIFY_TRUE (R, "verify_true (" #R ")")
++#define verify_true(R)  // _GL_VERIFY_TRUE (R, "verify_true (" #R ")")
+ 
+ /* Verify requirement R at compile-time.  Return the value of the
+    expression E.  */
+ 
+-#define verify_expr(R, E) \
++#define verify_expr(R, E)  // \
+    (_GL_VERIFY_TRUE (R, "verify_expr (" #R ", " #E ")") ? (E) : (E))
+ 
+ /* Verify requirement R at compile-time, as a declaration without a
+    trailing ';'.  */
+ 
+-#define verify(R) _GL_VERIFY (R, "verify (" #R ")")
++#define verify(R) //_GL_VERIFY (R, "verify (" #R ")")
+ 
+ /* @assert.h omit end@  */
+ 

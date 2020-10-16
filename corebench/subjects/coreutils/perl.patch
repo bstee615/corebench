@@ -1,0 +1,11 @@
+--- bootstrap.conf	2013-12-07 15:28:25.000000000 +0800
++++ bootstrap.conf	2013-12-07 15:28:35.000000000 +0800
+@@ -309,7 +309,7 @@
+ gperf      -
+ gzip       -
+ makeinfo   -
+-perl       5.5
++perl       -
+ rsync      -
+ tar        -
+ "

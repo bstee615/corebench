@@ -1,0 +1,11 @@
+--- gnulib/lib/utimecmp.c	2013-12-06 21:04:01.000000000 +0800
++++ gnulib/lib/utimecmp.c	2013-12-06 21:05:57.000000000 +0800
+@@ -131,7 +131,7 @@
+ 
+      time_t might be unsigned.  */
+ 
+-  verify (TYPE_IS_INTEGER (time_t));
++//  verify (TYPE_IS_INTEGER (time_t));
+   verify (TYPE_TWOS_COMPLEMENT (int));
+ 
+   /* Destination and source time stamps.  */

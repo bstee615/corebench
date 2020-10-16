@@ -1,0 +1,29 @@
+#                                                                    -*-perl-*-
+$description = "Test backslash-newline handling.";
+
+$details = "";
+
+
+# Backslash-newlines in variable values
+
+
+
+# Condense trailing space
+run_make_test(q!
+var = he  \
+llo
+var:;@echo '|$(var)|'!,
+              '', "|he llo|");
+
+
+# Multiple bs/nl condensed
+run_make_test(q!
+var = he\
+\
+\
+    llo
+var:;@echo '|$(var)|'!,
+              '', "|he llo|");
+
+
+1;

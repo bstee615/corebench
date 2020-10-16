@@ -1,0 +1,14 @@
+--- bootstrap	2013-12-06 17:42:02.000000000 +0800
++++ bootstrap	2013-12-06 17:42:07.000000000 +0800
+@@ -311,6 +311,11 @@
+       *)                  c1=     ; c2=     ;;
+     esac
+ 
++	# If the destination directory doesn't exist, create it.
++    # This is required at least for "lib/uniwidth/cjk.h".
++    dst_dir=`dirname "$cp_dst"`
++    test -d "$dst_dir" || mkdir -p "$dst_dir"
++
+     if test -z "$c1"; then
+       cmp -s "$cp_src" "$cp_dst" || {
+ 	echo "$0: cp -f $cp_src $cp_dst" &&

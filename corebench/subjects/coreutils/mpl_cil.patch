@@ -1,0 +1,18 @@
+--- src/make-prime-list.c	2014-02-10 15:40:39.812938425 +0800
++++ src/make-prime-list.c	2014-02-10 15:40:34.098162362 +0800
+@@ -39,11 +39,11 @@
+    for you, please report a bug; in the meantime compile with, e.g.,
+    -Dwide_uint='unsigned __int128' to override the heuristic.  */
+ #ifndef wide_uint
+-# if 4 < __GNUC__ + (6 <= __GNUC_MINOR__) && ULONG_MAX >> 31 >> 31 >> 1 != 0
+-typedef unsigned __int128 wide_uint;
+-# else
++//# if 4 < __GNUC__ + (6 <= __GNUC_MINOR__) && ULONG_MAX >> 31 >> 31 >> 1 != 0
++//typedef unsigned __int128 wide_uint;
++//# else
+ typedef uintmax_t wide_uint;
+-# endif
++//# endif
+ #endif
+ 
+ struct prime

@@ -1,0 +1,10 @@
+--- lib/verify.h	2014-02-13 11:32:04.208854324 +0800
++++ lib/verify.h	2014-02-13 11:32:00.338920179 +0800
+@@ -136,6 +136,6 @@
+ /* Verify requirement R at compile-time, as a declaration without a
+    trailing ';'.  */
+ 
+-# define verify(R) extern int (* verify_function__ (void)) [verify_true (R)]
++# define verify(R) //extern int (* verify_function__ (void)) [verify_true (R)]
+ 
+ #endif

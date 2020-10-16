@@ -1,0 +1,22 @@
+--- Makefile	2013-12-13 11:59:45.000000000 +0800
++++ Makefile	2013-12-13 12:00:15.000000000 +0800
+@@ -1233,12 +1233,13 @@
+ # to do it ourselves.
+ #
+ .dep_segment: Makefile.am maintMakefile $(DEP_FILES)
+-	cat $(DEP_FILES) \
+-	  | sed -e '/^[^:]*\.[ch] *:/d' \
+-		-e 's, /usr/[^ ]*,,g' \
+-		-e 's, $(srcdir)/, ,g' \
+-		-e '/^ \\$$/d' \
+-	  > $@
++	touch $@
++#	cat $(DEP_FILES) \
++#	  | sed -e '/^[^:]*\.[ch] *:/d' \
++#		-e 's, /usr/[^ ]*,,g' \
++#		-e 's, $(srcdir)/, ,g' \
++#		-e '/^ \\$$/d' \
++#	  > $@
+ 
+ # Get rid of everything "else".
+ #

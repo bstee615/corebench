@@ -1,0 +1,9 @@
+--- src/Makefile.am	2015-12-04 01:18:43.012008559 +0000
++++ src/Makefile.am	2015-12-04 01:19:03.816008559 +0000
+@@ -1,5 +1,5 @@
+ ## Process this file with automake to create Makefile.in
+-AUTOMAKE_OPTIONS = ansi2knr
++AUTOMAKE_OPTIONS = 
+ 
+ LN = ln
+ 

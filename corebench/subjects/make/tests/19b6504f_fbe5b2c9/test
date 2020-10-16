@@ -1,0 +1,83 @@
+#                                                                    -*-perl-*-
+
+$description = "Test parallelism (-j) option.";
+
+
+$details = "This test creates a makefile with two double-colon default
+rules.  The first rule has a series of sleep and echo commands
+intended to run in series.  The second and third have just an
+echo statement.  When make is called in this test, it is given
+the -j option with a value of 4.  This tells make that it may
+start up to four jobs simultaneously.  In this case, since the
+first command is a sleep command, the output of the second
+and third commands will appear before the first if indeed
+make is running all of these commands in parallel.";
+
+if (!$parallel_jobs) {
+  return -1;
+}
+
+if ($vos) {
+  $sleep_command = "sleep -seconds";
+}
+else {
+  $sleep_command = "sleep";
+}
+
+
+
+# Ensure intermediate/secondary files are not pruned incorrectly.
+# See Savannah bug #30653
+
+utouch(-15, 'file2');
+utouch(-10, 'file4');
+utouch(-5,  'file1');
+
+run_make_test(q!
+.INTERMEDIATE: file3
+file4: file3 ; @mv -f $< $@
+file3: file2 ; touch $@
+file2: file1 ; @touch $@
+!,
+              '--no-print-directory -j2', "touch file3");
+
+#rmfiles('file1', 'file2', 'file3', 'file4');
+
+
+
+# Make sure that all jobserver FDs are closed if we need to re-exec the
+# master copy.
+#
+# First, find the "default" file descriptors we normally use
+# Then make sure they're still used.
+#
+# Right now we don't have a way to run a makefile and capture the output
+# without checking it, so we can't really write this test.
+
+# run_make_test('
+# submake: ; @$(MAKE) --no-print-directory -f #MAKEFILE# fdprint 5>output
+
+# dependfile: ; @echo FOO=bar > $@
+
+# INCL := true
+
+# FOO=foo
+# ifeq ($(INCL),true)
+# -include dependfile
+# endif
+
+# fdprint: ; @echo $(filter --jobserver%,$(MAKEFLAGS))
+
+# recurse: ; @$(MAKE) --no-print-directory -f #MAKEFILE# submake INCL=true',
+#               '-j2 INCL=false fdprint',
+#               'bar');
+
+# rmfiles(qw(dependfile output));
+
+
+# # Do it again, this time where the include is done by the non-master make.
+# run_make_test(undef, '-j2 recurse INCL=false', 'bar');
+
+# rmfiles(qw(dependfile output));
+
+1;

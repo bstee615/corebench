@@ -1,0 +1,11 @@
+--- src/dfa.h	2015-12-04 01:50:22.576008559 +0000
++++ src/dfa.h	2015-12-04 01:48:41.880008559 +0000
+@@ -390,7 +390,7 @@
+ /* dfasyntax() takes three arguments; the first sets the syntax bits described
+    earlier in this file, the second sets the case-folding flag, and the
+    third specifies the line terminator. */
+-extern void dfasyntax PARAMS ((reg_syntax_t, int, unsigned char));
++//extern void dfasyntax PARAMS ((reg_syntax_t, int, unsigned char));
+ 
+ /* Compile the given string of the given length into the given struct dfa.
+    Final argument is a flag specifying whether to build a searching or an

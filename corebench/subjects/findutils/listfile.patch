@@ -1,0 +1,11 @@
+--- lib/listfile.c	2014-02-13 13:29:23.719124864 +0800
++++ lib/listfile.c	2014-02-13 13:29:19.300916709 +0800
+@@ -90,7 +90,7 @@
+ #endif
+ 
+ #if defined(S_ISLNK)
+-int readlink ();
++//int readlink ();
+ #endif
+ 
+ /* Get or fake the disk device blocksize.

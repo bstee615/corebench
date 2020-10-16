@@ -1,0 +1,11 @@
+--- configure.ac	2013-12-12 15:58:19.000000000 +0800
++++ configure.ac	2013-12-12 15:58:28.000000000 +0800
+@@ -26,7 +26,7 @@
+ AC_CONFIG_HEADERS([config.h])
+ 
+ # Automake setup
+-AM_INIT_AUTOMAKE([1.11.1 silent-rules])
++AM_INIT_AUTOMAKE([1.11 silent-rules])
+ 
+ # Checks for programs.
+ AC_PROG_CC

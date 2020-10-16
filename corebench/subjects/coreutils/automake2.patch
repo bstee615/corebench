@@ -1,0 +1,11 @@
+--- configure.ac	2013-12-06 18:17:32.000000000 +0800
++++ configure.ac	2013-12-06 18:17:37.000000000 +0800
+@@ -32,7 +32,7 @@
+ AC_CONFIG_AUX_DIR([build-aux])
+ AC_CONFIG_HEADERS([lib/config.h:lib/config.hin])
+ 
+-AM_INIT_AUTOMAKE([1.11.2 no-dist-gzip dist-xz color-tests parallel-tests
++AM_INIT_AUTOMAKE([1.11 no-dist-gzip dist-xz color-tests parallel-tests
+                   subdir-objects])
+ AM_SILENT_RULES([yes]) # make --enable-silent-rules the default.
+ 

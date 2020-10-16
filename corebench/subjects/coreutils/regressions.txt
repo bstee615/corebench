@@ -1,0 +1,29 @@
+0928c2414ab21682600e6572bc628a405fb1ea80 5ee7d8f55bb0a48fd2cd5bc3c12b3db588d98beb http://bugs.gnu.org/9308
+20c0b8701fda7e34f3a2f944d795da487274cf10 51a8f707131c36d7a88753e3bee839b2a4a336e4 http://bugs.gnu.org/14530
+3e466ad05181d95057e6612ff11059c91396cd0e b54b47f954c9b97bdb2dbbf51ead908ccb3a4f13 http://bugs.gnu.org/13127#61
+d461bfd2743547360793acd2118d4c08ad7b84a8 8f97679836d9d03b687cb854dbda52a8fbf9823f http://lists.gnu.org/archive/html/coreutils/2013-04/msg00003.html
+ae494d4be80df2aff50a2ac46fdc0c23de109ea3 d461bfd2743547360793acd2118d4c08ad7b84a8 http://lists.gnu.org/archive/html/coreutils/2013-04/msg00003.html
+ec48beadfa0ae1216788eaf6bf558ee2013eac18 be7932e863de07c4c7e4fc3c1db3eb6d04ba9af5 http://bugs.gnu.org/13627
+77f89d014be68e42de5107aee0be95d18ee1735c 2238ab574191d30b89a007b760c616efaf9c219c http://bugs.gnu.org/13525
+3786fb6de3918692675287953825ef623bcff9b6 76f606a9544bd67629bd4766ff6efe8bf42b20d9 http://bugs.gnu.org/13227
++6c5f11fbfe56e4fa717953cdc3166d09fd8fd2ea 64d4a2807d46a85cfe5ab7eb99b3e91b9a75d5ab http://bugs.gnu.org/12959
+3964d508e210ed4890241289986b14ed6473d39d
+24ebca61a3a0f10d6cd2800b188b3c034d1c4755 62543570d72b756a3b04ca9d1ebec6f4dd2eea4b http://bugs.gnu.org/13119
+2e636af1ef3f6a5ef872bdd2297dd25198c69395 ec48beadfa0ae1216788eaf6bf558ee2013eac18 http://bugs.gnu.org/13098
+7380cf792aa35b9328519c5f374036d5260704cb 06aeeecb3fe2655fd5e4e12948b389873a79884b http://bugs.gnu.org/12966
+84457c491e775f664a1c33274cd2c5acadb5be73 a04ddb8dd3fffd3457f927a36f6840fc1465aba2 http://bugs.gnu.org/12445
+bcb9078e380d81be62e8df00c45afc2f57392dc2 6124a3842dfa8484b52e067a8ab8105c3875a4f7 http://bugs.gnu.org/11453
+cfe1040c093be1c1a9b2403e713f1d1c2242a4bc f7f398a1d91ca6b09e5282423711a7c785be2789 http://bugs.gnu.org/10967
+ae494d4be80df2aff50a2ac46fdc0c23de109ea3 61de57cd2369914542d44d32b4a2e001f638ada8 http://bugs.gnu.org/8544
+#ca9e212cf804775f3f460e8b42a4cdb2c74f8ee4 594292a1d89332dd006cd7fe3116cf46ebe9acf6 http://bugs.gnu.org/8374
+#031e2fb5e9501fb9cda4d739a92abb02e2b05a52 caaf2899f67d312d76af91add2a4d9f7be2d5c61 http://bugs.gnu.org/8154
+7380cf792aa35b9328519c5f374036d5260704cb 2e636af1ef3f6a5ef872bdd2297dd25198c69395 http://bugs.gnu.org/7993
+#
+# The regression was introduced with commit 6c5f11fb. But first version BEFORE the error that can be compiled is that before commit 3964d508
++6c5f11fbfe56e4fa717953cdc3166d09fd8fd2ea b8108fd2ddf77ae79cd014f4f37798a52be13fd1 http://lists.gnu.org/archive/html/bug-coreutils/2008-02/msg00187.html
+3964d508e210ed4890241289986b14ed6473d39d
+86e4b778b148bdd82395fdc312ce8d937f303e33 a860ca32b0cadfff722f7639b2158a59be7bd346 http://lists.gnu.org/archive/html/bug-coreutils/2007-10/msg00237.html
++6c5f11fbfe56e4fa717953cdc3166d09fd8fd2ea 86e4b778b148bdd82395fdc312ce8d937f303e33 http://lists.gnu.org/archive/html/bug-coreutils/2007-07/msg00055.html
+3964d508e210ed4890241289986b14ed6473d39d
+ae5717158f1b9f31b986b0f4416582684039ec55 a6a447fc58a01598682f0914f978d0a3c1cfc4dc http://lists.gnu.org/archive/html/bug-coreutils/2007-05/msg00195.html
+7eff5901c419afb8945bd96a5ed12d196802bc79 6fc0ccf717c09d2dc941ee9d6622e7e987653eeb http://lists.gnu.org/archive/html/bug-coreutils/2005-05/msg00189.html

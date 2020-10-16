@@ -1,0 +1,10 @@
+--- import-gnulib.config	2013-12-05 18:25:01.000000000 +0800
++++ import-gnulib.config	2013-12-05 18:25:06.000000000 +0800
+@@ -12,7 +12,6 @@
+ build-aux/install-sh
+ build-aux/mdate-sh
+ build-aux/mkinstalldirs
+-build-aux/missing
+ build-aux/texinfo.tex
+ '
+ 

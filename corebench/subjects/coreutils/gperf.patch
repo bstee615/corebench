@@ -1,0 +1,11 @@
+--- Makefile	2013-12-07 15:44:55.000000000 +0800
++++ Makefile	2013-12-07 15:45:00.000000000 +0800
+@@ -2920,7 +2920,7 @@
+ 	lib/asprintf.c lib/vasprintf.c lib/vfprintf.c lib/vprintf.c \
+ 	lib/waitpid.c lib/wcrtomb.c lib/wcswidth.c lib/wcwidth.c \
+ 	lib/write.c lib/xstrtod.c
+-GPERF = lib/gperf
++GPERF = gperf
+ charset_alias = $(DESTDIR)$(libdir)/lib/charset.alias
+ charset_tmp = $(DESTDIR)$(libdir)/charset.tmp
+ 

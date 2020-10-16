@@ -1,0 +1,11 @@
+--- configure.ac	2013-12-13 20:51:42.000000000 +0800
++++ configure.ac	2013-12-13 20:51:49.000000000 +0800
+@@ -27,7 +27,7 @@
+ 
+ # Automake setup
+ # We have to enable "foreign" because ChangeLog is auto-generated
+-AM_INIT_AUTOMAKE([1.11.1 silent-rules foreign -Wall -Werror])
++AM_INIT_AUTOMAKE([1.11 silent-rules foreign -Wall -Werror])
+ 
+ # Checks for programs.
+ AC_PROG_CC

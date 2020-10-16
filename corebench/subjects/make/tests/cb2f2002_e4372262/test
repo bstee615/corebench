@@ -1,0 +1,24 @@
+#                                                                    -*-perl-*-
+$description = "Test handling of static pattern rules.";
+
+$details = "\
+The makefile created in this test has three targets.  The
+filter command is used to get those target names ending in
+.o and statically creates a compile command with the target
+name and the target name with .c.  It also does the same thing
+for another target filtered with .elc and creates a command
+to emacs a .el file";
+
+
+
+# TEST #6 -- bug #13881: double colon static pattern rule does not
+#                        substitute %.
+#
+run_make_test('
+foo.bar:: %.bar: %.baz
+foo.baz: ;@:
+',
+'',
+'');
+
+1;

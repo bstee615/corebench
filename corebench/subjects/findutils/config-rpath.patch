@@ -1,0 +1,10 @@
+--- import-gnulib.config	2013-12-06 14:02:56.000000000 +0800
++++ import-gnulib.config	2013-12-06 14:03:14.000000000 +0800
+@@ -6,7 +6,6 @@
+ # Random extra gnulib files needed for findutils.
+ extra_files='
+ build-aux/config.guess
+-build-aux/config.rpath
+ build-aux/config.sub
+ build-aux/depcomp
+ build-aux/install-sh

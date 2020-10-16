@@ -1,0 +1,11 @@
+--- gnulib/lib/getdate.c	2013-12-06 13:36:14.000000000 +0800
++++ gnulib/lib/getdate.c	2013-12-06 13:36:33.000000000 +0800
+@@ -181,7 +181,7 @@
+    long int.  It also assumes that signed integer overflow silently
+    wraps around, but there's no portable way to check for that at
+    compile-time.  */
+-verify (TYPE_IS_INTEGER (time_t));
++//verify (TYPE_IS_INTEGER (time_t));
+ verify (LONG_MIN <= TYPE_MINIMUM (time_t) && TYPE_MAXIMUM (time_t) <= LONG_MAX);
+ 
+ /* An integer value, and the number of digits in its textual

@@ -1,0 +1,11 @@
+--- gnulib/lib/parse-datetime.y	2013-12-05 17:30:15.000000000 +0800
++++ gnulib/lib/parse-datetime.y	2013-12-05 17:32:47.000000000 +0800
+@@ -106,7 +106,7 @@
+ #define HOUR(x) ((x) * 60)
+ 
+ /* long_time_t is a signed integer type that contains all time_t values.  */
+-verify (TYPE_IS_INTEGER (time_t));
++//verify (TYPE_IS_INTEGER (time_t));
+ #if TIME_T_FITS_IN_LONG_INT
+ typedef long int long_time_t;
+ #else

@@ -1,0 +1,29 @@
+#                                                              -*-mode: perl-*-
+
+$description = "Test GNU make's auto-reinvocation feature.";
+
+$details = "\
+If the makefile or one it includes can be rebuilt then it is, and make
+is reinvoked.  We create a rule to rebuild the makefile from a temp
+file, then touch the temp file to make it newer than the makefile.";
+
+$omkfile = $makefile;
+
+
+# Ensure command line variables are preserved properly across re-exec
+# Tests for Savannah bug #30723
+
+run_make_test('
+ifdef RECURSE
+-include foo30723
+endif
+recurse: ; @$(MAKE) -f $(MAKEFILE_LIST) RECURSE=1 test
+test: ; @echo F.O=$(F.O)
+foo30723: ; @touch $@
+',
+              '--no-print-directory F.O=bar', "F.O=bar\n");
+
+unlink('foo30723');
+
+# This tells the test driver that the perl test script executed properly.
+1;

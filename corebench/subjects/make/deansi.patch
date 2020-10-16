@@ -1,0 +1,10 @@
+--- Makefile.am	2015-12-04 11:39:08.164008559 +0000
++++ Makefile.am	2015-12-04 11:39:23.976008559 +0000
+@@ -1,6 +1,6 @@
+ # This is a -*-Makefile-*-, or close enough
+ 
+-AUTOMAKE_OPTIONS = 1.8 dist-bzip2 check-news ansi2knr
++AUTOMAKE_OPTIONS = 1.8 dist-bzip2 check-news 
+ ACLOCAL_AMFLAGS	=  -I config
+ 
+ SUBDIRS =	glob config po doc

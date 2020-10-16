@@ -1,0 +1,39 @@
+--- lib/verify.h	2014-02-13 09:47:47.637888314 +0800
++++ lib/verify.h	2014-02-13 09:47:33.670907694 +0800
+@@ -168,21 +168,21 @@
+ #  define verify_true(R) \
+      (!!sizeof (verify_type__<(R) ? 1 : -1>))
+ # elif HAVE__STATIC_ASSERT
+-#  define verify_true(R) \
++#  define verify_true(R) //\
+      (!!sizeof \
+       (struct { \
+         _Static_assert (R, "verify_true (" #R ")"); \
+         int verify_dummy__; \
+        }))
+ # elif HAVE_STATIC_ASSERT
+-#  define verify_true(R) \
++#  define verify_true(R) //\
+      (!!sizeof \
+       (struct { \
+         static_assert (R, "verify_true (" #R ")"); \
+         int verify_dummy__; \
+        }))
+ # else
+-#  define verify_true(R) \
++#  define verify_true(R) //\
+      (!!sizeof \
+       (struct { unsigned int verify_error_if_negative_size__: (R) ? 1 : -1; }))
+ # endif
+@@ -191,9 +191,9 @@
+    trailing ';'.  */
+ 
+ # if HAVE__STATIC_ASSERT
+-#  define verify(R) _Static_assert (R, "verify (" #R ")")
++#  define verify(R) //_Static_assert (R, "verify (" #R ")")
+ # elif HAVE_STATIC_ASSERT
+-#  define verify(R) static_assert (R, "verify (" #R ")")
++#  define verify(R) //static_assert (R, "verify (" #R ")")
+ # else
+ #  define verify(R) \
+     extern int (* _GL_GENSYM (verify_function) (void)) [verify_true (R)]

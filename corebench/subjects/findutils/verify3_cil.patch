@@ -1,0 +1,24 @@
+--- lib/verify.h	2014-02-12 17:47:03.307880167 +0800
++++ lib/verify.h	2014-02-12 17:45:56.714597570 +0800
+@@ -146,10 +146,10 @@
+ # ifdef __cplusplus
+ template <int w>
+   struct verify_type__ { unsigned int verify_error_if_negative_size__: w; };
+-#  define verify_true(R) \
++#  define verify_true(R) //\
+      (!!sizeof (verify_type__<(R) ? 1 : -1>))
+ # else
+-#  define verify_true(R) \
++#  define verify_true(R) //\
+      (!!sizeof \
+       (struct { unsigned int verify_error_if_negative_size__: (R) ? 1 : -1; }))
+ # endif
+@@ -157,7 +157,7 @@
+ /* Verify requirement R at compile-time, as a declaration without a
+    trailing ';'.  */
+ 
+-# define verify(R) \
++# define verify(R) //\
+     extern int (* _GL_GENSYM (verify_function) (void)) [verify_true (R)]
+ 
+ #endif
