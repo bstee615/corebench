@@ -1,0 +1,3 @@
+# Options to apply to all Polyspace projects
+#-dos false
+-checkers CWE

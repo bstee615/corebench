@@ -103,7 +103,7 @@ if ! [[ "$current_rev" == *"$revision"* ]]; then
   if [[ "master" == *"$revision"* ]] && [[ "$master_rev" == *"$current_rev"* ]]; then
 	echo Is Master
   else
-	quit "Bug - Wrong revision in this repo! Is $current_rev but
+	echo "Bug - Wrong revision in this repo! Is $current_rev but
  should be $revision".
   fi
 fi
@@ -203,10 +203,10 @@ echo "all: ;" > po/Makefile
   ./configure --disable-nls CFLAGS="-Wno-error" || quit "Cannot configure"
 #fi
 
-make || (
+polyspace-configure -prog "coreutils.$revision" make || (
   echo "all: ;" > doc/Makefile
   echo "all: ;" > po/Makefile
-  make || quit "Cannot make"
+  polyspace-configure -prog "coreutils.$revision" make || quit "Cannot make"
 )
 touch is_installed
 

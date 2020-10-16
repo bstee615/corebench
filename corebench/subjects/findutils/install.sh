@@ -84,7 +84,7 @@ fi
 #patching some problem
 export DO_NOT_WANT_CHANGELOG_DRIVER=1
 #patching old automake de-ANSI-fication problem
-sed -i.bak 's/AM_C_PROTOTYPES/dnl AM_C_PROTOTYPES/g' configure.ac
+sed -i.bak -e 's/AM_C_PROTOTYPES/dnl AM_C_PROTOTYPES/g' -e 's/AC_PREREQ\(2\.59\)/AC_PREREQ(2.64)/g' configure.ac
 sed -i.bak 's/AM_C_PROTOTYPES/dnl AM_C_PROTOTYPES/g' configure.in
 
 
@@ -203,7 +203,7 @@ verify_patch
 #fi
 echo "all: ;" > doc/Makefile
 echo "all: ;" > po/Makefile
-make || quit "Cannot make"
+polyspace-configure -prog "find.$revision" make || quit "Cannot make"
 touch is_installed
 
 

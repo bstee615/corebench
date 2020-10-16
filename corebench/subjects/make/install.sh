@@ -25,7 +25,7 @@ fi
 cd "$repo"
 current_rev=$(shorten $(git rev-parse HEAD || quit "Cannot retrieve hash for current revision from $repo!"))
 if ! [[ "$current_rev" == *"$revision"* ]]; then
-  quit "Bug - Wrong revision in this repo! Is $current_rev but should be $revision".
+  echo "Bug - Wrong revision in this repo! Is $current_rev but should be $revision".
 fi
 
 #blindly apply all patches
@@ -33,7 +33,11 @@ patch -f < $scriptdir/subjects/make/automake1.patch || patch -f < $scriptdir/sub
 patch -f < $scriptdir/subjects/make/amprog.patch
 sed -i.bak 's/^AM_C_PROTOTYPES/dnl AM_C_PROTOTYPES/g' configure.ac
 sed -i.bak 's/^AM_C_PROTOTYPES/dnl AM_C_PROTOTYPES/g' configure.in
+sed -i.bak 's/if _GNU_GLOB_INTERFACE_VERSION == GLOB_INTERFACE_VERSION/if _GNU_GLOB_INTERFACE_VERSION >= GLOB_INTERFACE_VERSION/g' glob/glob.c
 patch -f < $scriptdir/subjects/make/deansi.patch
+
+#copy texi's
+cp $scriptdir/subjects/make/*.texi doc
 
 touch INSTALL
 touch README
