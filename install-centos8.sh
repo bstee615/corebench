@@ -7,9 +7,11 @@ then
 	exit
 fi
 
+# autopoint => autopoint-devel
+# skip lcov
 dnf install autoconf        \
     autogen         \
-    autopoint       \
+    gettext-autopoint       \
     automake        \
     bison           \
     clang           \
@@ -20,7 +22,6 @@ dnf install autoconf        \
     gnuplot         \
     gperf           \
     gzip            \
-    lcov            \
     libtool         \
     make            \
     nasm            \
@@ -35,12 +36,11 @@ dnf install autoconf        \
     wget \
   || exit
 
-export ACLOCAL_PATH=/usr/share/aclocal # This might be needed every time we build
-wget http://pkgconfig.freedesktop.org/releases/pkg-config-0.28.tar.gz \
-  && tar -zxvf pkg-config-0.28.tar.gz \
-  && cd pkg-config-0.28 \
-  && ./configure --with-internal-glib && make && make install \
-  || exit
-#FIX problem with aclocal
-#cp /usr/local/share/aclocal/* /usr/share/aclocal && mv /usr/local/share/aclocal /tmp
+# Install pkg-config
+PKGCONFIG='pkg-config-0.28'
+wget "http://pkgconfig.freedesktop.org/releases/$PKGCONFIG.tar.gz"
+tar -zxvf "$PKGCONFIG.tar.gz"
+pushd $PKGCONFIG
+./configure --with-internal-glib && make && make install || exit
+popd
 
