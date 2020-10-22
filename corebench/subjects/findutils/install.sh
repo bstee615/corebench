@@ -203,7 +203,6 @@ verify_patch
 #fi
 echo "all: ;\nclean: ;" > doc/Makefile
 echo "all: ;\nclean: ;" > po/Makefile
-polyspace-configure -prog "find.$revision" make || quit "Cannot make"
 touch is_installed
 
 
