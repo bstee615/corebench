@@ -203,10 +203,10 @@ echo "all: ;" > po/Makefile
   ./configure --disable-nls CFLAGS="-Wno-error" || quit "Cannot configure"
 #fi
 
-polyspace-configure -prog "coreutils.$revision" make || (
-  echo "all: ;" > doc/Makefile
-  echo "all: ;" > po/Makefile
-  polyspace-configure -prog "coreutils.$revision" make || quit "Cannot make"
+make || (
+  echo "all: ;\nclean: ;" > doc/Makefile
+  echo "all: ;\nclean: ;" > po/Makefile
+  make || quit "Cannot make"
 )
 touch is_installed
 
