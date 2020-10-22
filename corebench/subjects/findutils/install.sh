@@ -84,7 +84,7 @@ fi
 #patching some problem
 export DO_NOT_WANT_CHANGELOG_DRIVER=1
 #patching old automake de-ANSI-fication problem
-sed -i.bak -e 's/AM_C_PROTOTYPES/dnl AM_C_PROTOTYPES/g' -e 's/AC_PREREQ\(2\.59\)/AC_PREREQ(2.64)/g' configure.ac
+sed -i.bak -e 's/AM_C_PROTOTYPES/dnl AM_C_PROTOTYPES/g' -e 's/AC_PREREQ(2.59)/AC_PREREQ(2.64)/g' configure.ac
 sed -i.bak 's/AM_C_PROTOTYPES/dnl AM_C_PROTOTYPES/g' configure.in
 
 
