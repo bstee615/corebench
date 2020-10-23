@@ -11,7 +11,7 @@ function usage()
 	quit "Usage: $0 <subject> <revision> </path/to/corerepo>. The project should be installed by install.sh first."
 }
 
-if [ -z $1 ] || [ ! -d $2  ] || [ ! -d $3 ]
+if [ -z $1 ] || [ -z $2  ] || [ ! -d $3 ]
 then
 	usage
 fi
