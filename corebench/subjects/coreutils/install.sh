@@ -195,19 +195,15 @@ ae571715)
   ;;
 esac
 
-echo "all: ;" > doc/Makefile
-echo "all: ;" > po/Makefile
+printf "all: ;\nclean" > doc/Makefile
+printf "all: ;\nclean" > po/Makefile
 #if [ $cil -ne 0 ]; then
 #  ./configure CC=cilly LD=cilly CFLAGS="-Wno-error --save-temps" || quit "Cannot configure"
 #else 
   ./configure --disable-nls CFLAGS="-Wno-error" || quit "Cannot configure"
 #fi
 
-make || (
-  echo "all: ;\nclean: ;" > doc/Makefile
-  echo "all: ;\nclean: ;" > po/Makefile
   make || quit "Cannot make"
-)
 touch is_installed
 
 

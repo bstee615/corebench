@@ -50,8 +50,8 @@ fi
 
 patch -f < $scriptdir/subjects/make/depseg.patch 
 
-echo "all: ;\nclean: ;" > doc/Makefile
-echo "all: ;\nclean: ;" > po/Makefile
+printf "all: ;\nclean: ;" > doc/Makefile
+printf "all: ;\nclean: ;" > po/Makefile
 
 make CFLAGS="-ggdb -O0 -w" || quit "Cannot build."
 

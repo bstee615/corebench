@@ -76,8 +76,8 @@ verify_patch
 #else 
   ./configure --disable-nls || quit "Cannot configure."
 #fi
-echo "all: ;\nclean: ;" > doc/Makefile
-echo "all: ;\nclean: ;" > po/Makefile
+printf "all: ;\nclean: ;" > doc/Makefile
+printf "all: ;\nclean: ;" > po/Makefile
 make || quit "Cannot make"
 touch is_installed
 
