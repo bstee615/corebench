@@ -195,6 +195,21 @@ ae571715)
   ;;
 esac
 
+# Fix "Please port gnulib f*.c to your platform!"
+for f in $(ls gnulib/lib/*.c gl/lib/*.c lib/*.c)
+do
+  sed -i.bak 's/_IO_ferror_unlocked/IO_EOF_SEEN/g' $f
+  sed -i.bak 's/_IO_ftrylockfile/IO_EOF_SEEN/g' $f
+  sed -i.bak -e 's/\sIO_EOF_SEEN/ _IO_EOF_SEEN/g' $f
+done
+
+echo "#define _IO_IN_BACKUP 0x100" >> gnulib/lib/stdio-impl.h
+echo "#define _IO_IN_BACKUP 0x100" >> gnulib/lib/stdio.h
+echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h
+echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio.h
+
+sed -i.bak 's@_GL_WARN_ON_USE (gets, "gets is a security hole - use fgets instead");@//_GL_WARN_ON_USE (gets, "gets is a security hole - use fgets instead");@g' lib/stdio.h
+
 printf "all: ;\nclean" > doc/Makefile
 printf "all: ;\nclean" > po/Makefile
 #if [ $cil -ne 0 ]; then
@@ -203,7 +218,7 @@ printf "all: ;\nclean" > po/Makefile
   ./configure --disable-nls CFLAGS="-Wno-error" || quit "Cannot configure"
 #fi
 
-  make || quit "Cannot make"
+make || quit "Cannot make"
 touch is_installed
 
 
