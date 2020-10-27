@@ -15,8 +15,9 @@ subject="$1"
 rev="$2"
 repo="$3"
 scriptsdir="$4"
+resultsdir="$5"
 root="$repo/$subject/$rev/$subject"
-if [ -z $subject ] || [ -z $rev ] || [ ! -d $repo ] || [ ! -d $root ] || [ ! -d $scriptsdir ]
+if [ -z $subject ] || [ -z $rev ] || [ ! -d $repo ] || [ ! -d $root ] || [ ! -d $scriptsdir ] || [ ! -d $resultsdir ]
 then
 	usage
 fi
@@ -25,7 +26,7 @@ echo "Building $root with PolySpace..."
 
 options='ps-options.txt'
 globalOptions="$scriptsdir/global-ps-options.txt"
-result="$subject.$rev"
+result="$resultsdir/$subject.$rev"
 
 pushd $root
 
