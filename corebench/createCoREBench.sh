@@ -171,7 +171,7 @@ function compile_rev {
   fi
   if ! [ -e "$basedir/$subject/$after_rev/$subject/is_installed" ] ; then
         printf "${subject}_$after_rev: Compiling .. "
-    	timeout 10m "$scriptdir/subjects/$subject/install.sh" "$basedir/$subject/$after_rev/$subject" $after_rev $cil "$scriptdir" > /tmp/errors.log 2>&1 
+    	timeout 10m "$scriptdir/subjects/$subject/install.sh" "$basedir/$subject/$after_rev/$subject" $after_rev $cil "$scriptdir" > /tmp/$subject.$after_rev.errors.log 2>&1 
     if [[ $? -ne 0 ]]; then    
           echo "ERROR!"
           tail /tmp/errors.log | sed 's/^/\t/g' >&2
