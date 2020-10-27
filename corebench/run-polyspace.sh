@@ -3,7 +3,7 @@
 function quit()
 {
         echo $1
-        exit
+        exit 1
 }
 
 function usage()
@@ -28,19 +28,25 @@ options='ps-options.txt'
 globalOptions="$scriptsdir/global-ps-options.txt"
 result="$resultsdir/$subject.$rev"
 
+if [ -d $result ]
+then
+        echo "$result already exists"
+        exit 0
+fi
+
 pushd $root
 
 # The project should be installed by install.sh first
 if [ ! -f is_installed ]
 then
-	echo 'Not installed' && exit
+	quit 'Not installed'
 fi
 
 # Build with Polyspace and report errors.
 printf "all: ;\nclean: ;" > po/Makefile
 printf "all: ;\nclean: ;" > doc/Makefile
 make clean
-polyspace-configure -output-options-file $options make || quit 'polyspace-configure failed.'
+polyspace-configure -output-options-file $options -allow-overwrite make || quit 'polyspace-configure failed.'
 polyspace-bug-finder -options-file $options -options-file $globalOptions -results-dir $result || quit 'polyspace run failed.'
 
 popd

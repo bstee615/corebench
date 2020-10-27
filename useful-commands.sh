@@ -15,6 +15,7 @@ function not_installed() {
 function run_polyspace_for_file() {
     for d in $(cat $1-easy-regressions.txt)
     do
+        echo "./run-polyspace.sh $1 $d ~/work/corebench/corerepo/ ~/work/corebench/corebench/ ~/work/corebench/polyspace-reports"
         ./run-polyspace.sh $1 $d ~/work/corebench/corerepo/ ~/work/corebench/corebench/ ~/work/corebench/polyspace-reports
     done
 }
