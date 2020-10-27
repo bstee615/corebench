@@ -75,6 +75,7 @@ function import_old {
 if ! [ -e "$repo" ] ; then 
  quit "$repo does not exist!"
 fi
+echo "$repo"
 cd "$repo"
 current_rev=$(shorten $(git rev-parse HEAD || quit "Cannot retrieve hash for current revision from $repo!"))
 if ! [[ "$current_rev" == *"$revision"* ]]; then
@@ -199,26 +200,12 @@ verify_patch
 # Fix "Please port gnulib f*.c to your platform!"
 for f in $(ls gnulib/lib/*.c gl/lib/*.c)
 do
-  sed -i.bak 's/_IO_ferror_unlocked/IO_EOF_SEEN/g' $f
-  sed -i.bak 's/IO_ftrylockfile/IO_EOF_SEEN/g' $f
+  sed -i.bak 's/_IO_ferror_unlocked/_IO_EOF_SEEN/g' $f
+  sed -i.bak 's/IO_ftrylockfile/_IO_EOF_SEEN/g' $f
 done
 
 echo "#define _IO_IN_BACKUP 0x100" >> gnulib/lib/stdio-impl.h
 echo "#define _IO_IN_BACKUP 0x100" >> gnulib/lib/stdio.h
-
-echo "/* Like xstrtol_error, except exit with a failure status.  */
-
-void
-xstrtol_fatal (enum strtol_error err,
-               int opt_idx, char c, struct option const *long_options,
-               char const *arg)
-{
-  xstrtol_error (err, opt_idx, c, long_options, arg, exit_failure);
-  abort ();
-}" >> gnulib/lib/xstrtol.c
-echo "_Noreturn void xstrtol_fatal (enum strtol_error,
-                              int, char, struct option const *,
-                              char const *);" >> gnulib/lib/xstrtol.h
 
 # Fix rename in gnulib
 sed -i.bak 's/typedef unsigned short security_class_t;/typedef unsigned short security_class_t; typedef security_class_t security_context_t;/g' gnulib/lib/se-selinux.in.h
