@@ -50,10 +50,7 @@ fi
 
 patch -f < $scriptdir/subjects/make/depseg.patch 
 
-printf "all: ;\nclean: ;" > doc/Makefile
-printf "all: ;\nclean: ;" > po/Makefile
-
-make CFLAGS="-ggdb -O0 -w" || quit "Cannot build."
+(make || (printf "all: ;\nclean: ;" > doc/Makefile && printf "all: ;\nclean: ;" > po/Makefile && make CFLAGS="-ggdb -O0 -w")) || quit "Cannot build."
 
 touch is_installed
 

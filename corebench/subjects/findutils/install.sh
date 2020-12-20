@@ -101,6 +101,7 @@ case "$revision" in
 	 git submodule foreach git checkout b64c50cfe4fca783f23341fffebc7d8f84f58820
 	./import-gnulib.sh -d gnulib-git/gnulib/ || quit "Cannot import gnulib"
 	parsetime_patch
+	sed -i.bak 's@xstrtol_fatal@{}//xstrtol_fatal@g' locate/locate.c
   ;;
   7dc70069)
   ;& #Fall-through
@@ -201,11 +202,18 @@ verify_patch
 for f in $(ls gnulib/lib/*.c gl/lib/*.c)
 do
   sed -i.bak 's/_IO_ferror_unlocked/_IO_EOF_SEEN/g' $f
-  sed -i.bak 's/IO_ftrylockfile/_IO_EOF_SEEN/g' $f
+  sed -i.bak 's/_IO_ftrylockfile/_IO_EOF_SEEN/g' $f
 done
 
-echo "#define _IO_IN_BACKUP 0x100" >> gnulib/lib/stdio-impl.h
-echo "#define _IO_IN_BACKUP 0x100" >> gnulib/lib/stdio.h
+for s in gnulib/lib/stdio-impl.h gnulib/lib/stdio.h gnulib/lib/stdio.in.h
+do
+  if [ -f "$s" ]
+  then
+    echo "#define _IO_IN_BACKUP 0x100" >> $s
+  else
+    echo "No file $s found"
+  fi
+done
 
 # Fix rename in gnulib
 sed -i.bak 's/typedef unsigned short security_class_t;/typedef unsigned short security_class_t; typedef security_class_t security_context_t;/g' gnulib/lib/se-selinux.in.h

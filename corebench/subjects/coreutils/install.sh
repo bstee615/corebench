@@ -203,10 +203,15 @@ do
   sed -i.bak -e 's/\sIO_EOF_SEEN/ _IO_EOF_SEEN/g' $f
 done
 
-echo "#define _IO_IN_BACKUP 0x100" >> gnulib/lib/stdio-impl.h
-echo "#define _IO_IN_BACKUP 0x100" >> gnulib/lib/stdio.h
-echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h
-echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio.h
+for s in gnulib/lib/stdio-impl.h gnulib/lib/stdio.h lib/stdio-impl.h
+do
+  if [ -f "$s" ]
+  then
+    echo "#define _IO_IN_BACKUP 0x100" >> $s
+  else
+    echo "No file $s found"
+  fi
+done
 
 sed -i.bak 's@_GL_WARN_ON_USE (gets, "gets is a security hole - use fgets instead");@//_GL_WARN_ON_USE (gets, "gets is a security hole - use fgets instead");@g' lib/stdio.h
 
@@ -218,7 +223,7 @@ printf "all: ;\nclean" > po/Makefile
   ./configure --disable-nls CFLAGS="-Wno-error" || quit "Cannot configure"
 #fi
 
-make || quit "Cannot make"
+make MAKEINFO=true || quit "Cannot make"
 touch is_installed
 
 
